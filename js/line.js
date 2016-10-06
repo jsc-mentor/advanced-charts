@@ -1,11 +1,11 @@
 $(function () {
     $('#hcContainer').highcharts({
         title: {
-            text: 'Monthly Average Temperature',
+            text: 'Widget Generator',
             x: -20 //center
         },
         subtitle: {
-            text: 'Source: WorldClimate.com',
+            text: 'Source: paul-franz.com',
             x: -20
         },
         xAxis: {
@@ -14,7 +14,7 @@ $(function () {
         },
         yAxis: {
             title: {
-                text: 'Temperature (°C)'
+                text: 'Units'
             },
             plotLines: [{
                 value: 0,
@@ -23,7 +23,7 @@ $(function () {
             }]
         },
         tooltip: {
-            valueSuffix: '°C'
+            valueSuffix: 'MW'
         },
         legend: {
             layout: 'vertical',
