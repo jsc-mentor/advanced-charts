@@ -1,4 +1,4 @@
-$(function drawCharts(numberOfPoint) {
+$(function drawCharts(numberOfPoints) {
 
 // function for button
 $("#button").click(function() {
@@ -47,7 +47,7 @@ $(document).ready(function() {
             time = (new Date()).getTime(),
             i, preValue;
 
-          for (i = 0; i < numberOfPoint; i += 1) {
+          for (i = 0; i < numberOfPoints; i += 1) {
             if (i == 0) {
               data.push({
                 x: i,
@@ -60,8 +60,8 @@ $(document).ready(function() {
               });
             }
           }
-          // showMsg(data);
-          // console.log(data);
+          showMsg(data);
+          console.log(data);
           return data;
         }())
       }]
