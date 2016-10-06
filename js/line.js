@@ -1,10 +1,13 @@
+$(function drawCharts(numberOfPoint) {
+
+// function for button
 $("#button").click(function() {
   series.addPoint([i, i]);
   i++;
 })
 
 // Declare the chart properties //
-$(function () {
+$(document).ready(function() {
     $('#hcContainer').highcharts({
         title: {
             text: 'Widget Generator',
@@ -37,8 +40,31 @@ $(function () {
             borderWidth: 0
         },
         series: [{
-            name: 'Widgets',
-            data: [7.0, 6.9, 9.5, 14.5]
-        }]
-    });
+        name: 'Random data',
+        data: (function() {
+          // generate an array of random data
+          var data = [],
+            time = (new Date()).getTime(),
+            i, preValue;
+
+          for (i = 0; i < numberOfPoint; i += 1) {
+            if (i == 0) {
+              data.push({
+                x: i,
+                y: 10
+              });
+            } else {
+              data.push({
+                x: i,
+                y: chartData["wealth"][0][i]
+              });
+            }
+          }
+          // showMsg(data);
+          // console.log(data);
+          return data;
+        }())
+      }]
+      });
+});
 });
