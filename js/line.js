@@ -1,3 +1,9 @@
+$("#button").click(function() {
+  series.addPoint([i, i]);
+  i++;
+})
+
+// Declare the chart properties //
 $(function () {
     $('#hcContainer').highcharts({
         title: {
@@ -9,8 +15,7 @@ $(function () {
             x: -20
         },
         xAxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            categories: ['A', 'B', 'C', 'D', 'E']
         },
         yAxis: {
             title: {
