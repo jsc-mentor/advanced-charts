@@ -1,8 +1,35 @@
+window.series = {
+        name: 'Random data',
+        data: (function() {
+          // generate an array of random data
+          var data = [],
+            time = (new Date()).getTime(),
+            i, preValue;
+
+          for (i = 0; i < numberOfPoints; i += 1) {
+            if (i == 0) {
+              data.push({
+                x: i,
+                y: 10
+              });
+            } else {
+              data.push({
+                x: i,
+                y: chartData["wealth"][0][i]
+              });
+            }
+          }
+
+          //console.log(data);
+          return data;
+        }
+               )()};
+
 $(function drawCharts(numberOfPoints) {
 
 // function for button
 $("#button").click(function() {
-  series.addPoint([i, i]);
+  window.series.addPoint([i, i]);
   i++;
 })
 
@@ -39,32 +66,7 @@ $(document).ready(function() {
             verticalAlign: 'middle',
             borderWidth: 0
         },
-        series: [{
-        name: 'Random data',
-        data: (function() {
-          // generate an array of random data
-          var data = [],
-            time = (new Date()).getTime(),
-            i, preValue;
-
-          for (i = 0; i < numberOfPoints; i += 1) {
-            if (i == 0) {
-              data.push({
-                x: i,
-                y: 10
-              });
-            } else {
-              data.push({
-                x: i,
-                y: chartData["wealth"][0][i]
-              });
-            }
-          }
-
-          //console.log(data);
-          return data;
-        }())
-      }]
+        series: window.series
       });
 });
 });
